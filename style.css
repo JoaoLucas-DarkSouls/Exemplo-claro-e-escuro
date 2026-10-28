@@ -1,0 +1,339 @@
+:root {
+    --bg: #008080;
+    --face: #c0c0c0;
+    --hi: #fff;
+    --sh: #808080;
+    --dk: #000;
+    --tt: #000080;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--bg);
+    font: 13px Tahoma,"MS Sans Serif",Arial,sans-serif;
+    color: #000;
+    overflow: hidden;
+    user-select: none;
+}
+
+.raised {
+    background: var(--face);
+    border: 2px solid;
+    border-color: var(--hi) var(--dk) var(--dk) var(--hi);
+    box-shadow: inset -1px -1px var(--sh),inset 1px 1px #dfdfdf;
+}
+
+.sunk {
+    background: #fff;
+    border: 2px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+    box-shadow: inset 1px 1px var(--dk);
+}
+
+#desk {
+    position: absolute;
+    inset: 0 0 34px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 14px;
+}
+
+.icon {
+    width: 78px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.icon .g {
+    font-size: 32px;
+    line-height: 38px;
+}
+
+.icon span {
+    display: inline-block;
+    padding: 1px 3px;
+}
+
+.icon.sel span {
+    background: var(--tt);
+    outline: 1px dotted #ff0;
+}
+
+.win {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    padding: 3px;
+    min-width: 260px;
+    max-width: 96vw;
+}
+
+.win.open {
+    display: flex;
+}
+
+.tb {
+    background: linear-gradient(90deg,#000080,#1084d0);
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: move;
+}
+
+.win.inactive .tb {
+    background: linear-gradient(90deg,#808080,#b5b5b5);
+}
+
+.tb .t {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    background: var(--face);
+    border: 2px solid;
+    border-color: var(--hi) var(--dk) var(--dk) var(--hi);
+    box-shadow: inset -1px -1px var(--sh);
+    font: bold 11px Tahoma,sans-serif;
+    min-width: 18px;
+    height: 16px;
+    line-height: 10px;
+    padding: 0 4px;
+    cursor: pointer;
+    color:  #000;
+}
+
+.btn:active {
+    border-color: var(--dk) var(--hi) var(--hi) var(--dk);
+    box-shadow: inset 1px 1px var(--sh);
+}
+
+.pbtn {
+    height: auto;
+    padding: 5px 16px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.menu {
+    display: flex;
+    gap: 12px;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.body {
+    margin: 3px;
+    padding: 12px;
+    overflow: auto;
+    flex: 1;
+    background: #fff;
+    user-select: text;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 18px;
+    margin: 0 0 6px;
+}
+
+h2 {
+    font-size: 14px;
+    margin: 12px 0 4px;
+    color: var(--tt);
+}
+
+p {
+    margin: 6px 0;
+}
+
+a
+{
+    color: #00e;
+}
+
+.proj {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 8px 0;
+    padding: 8px;
+}
+
+.proj .g {
+    font-size: 28px;
+}
+
+.bar {
+    height: 16px;
+    margin: 3px 0 8px;
+    padding: 2px;
+    display: flex;
+    gap: 2px;
+}
+.bar i {
+    background: var(--tt);
+    width: 10px;
+    display: block;
+}
+
+.status {
+    display: flex;
+    gap: 3px;
+    padding: 2px 3px;
+    font-size: 11px;
+}
+
+.status div {
+    flex: 1;
+    padding: 1px 4px;
+    border: 1px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+}
+
+#task {
+    position:absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px;
+    border-top: 2px solid var(--hi);
+    z-index: 9999;
+}
+
+#start {
+    font-weight: bold;
+    height: 26px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size:  13px;
+}
+
+#tasks {
+    flex: 1;
+    display: flex;
+    gap: 3px;
+    overflow: hidden;
+}
+
+.tk {
+    height: 26px;
+    min-width: 90px;
+    max-width: 150px;
+    padding: 0 6px;
+    text-align: left;
+    font-weight: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.tk.on {
+    border-color: var(--dk) var(--hi) var(--hi) var(--dk);
+    background: repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%) 0 0/2px 2px;
+}
+
+#clock {
+    padding: 4px 10px;
+    font-size: 12px;
+    border: 1px solid;
+    border-color: var(--sh) var(--hi) var(--hi) var(--sh);
+}
+
+#smenu {
+    position: absolute;
+    left: 3px;
+    bottom: 34px;
+    width: 200px;
+    display: none;
+    z-index: 10000;
+    flex-direction: row;
+}
+
+#smenu.open {
+    display: flex;
+}
+
+#smenu .side {
+    background: linear-gradient(0deg,#000080,#1084d0);
+    width: 26px;
+    color: #c0c0c0;
+    font: bold 18px Arial;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: 6px 2px;
+    text-align: left;
+}
+
+#smenu ul {
+    list-style: none;
+    margin: 0;
+    padding :2px;
+    flex: 1;
+}
+
+#smenu li {
+    padding: 7px 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#smenu li:hover {
+    background: var(--tt);
+    color: #fff;
+}
+
+#smenu hr {
+    border: 0;
+    border-top: 1px solid var(--sh);
+    border-bottom: 1px solid var(--hi);
+    margin: 2px 0;
+}
+
+#boot {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: #ccc;
+    z-index: 99999;
+    font: 16px "Courier New",monospace;
+    padding: 20px;
+    transition: opacity .6s;
+}
+
+@media (max-width:600px) {
+    .win{
+        left: 2vw;
+        top: 8px;
+        width: 96vw;
+        max-height: calc(100% - 50px);
+    }
+}
